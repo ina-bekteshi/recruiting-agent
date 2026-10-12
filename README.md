@@ -67,7 +67,15 @@ Application text is treated as **data, never instructions**. The model's own jud
 
 ## What I'd do next
 
-- A small human-in-the-loop CLI to approve or overturn queued rejections and held advancements.
-- An eval set (about 30 labelled applications, including adversarial ones) to tune the rubric and measure agreement with human recruiters.
-- A stronger injection detector, such as a separate classifier call, with an LLM-judge consistency check on the score reasons.
-- Real integrations (ATS, email) behind the same tool interface, with idempotency keys.
+- A small human-in-the-loop CLI to approve or overturn queued rejections and held advancements, where a recruiter reviews the decisions the agent isn't allowed to finalise on its own.
+
+   Breaking down:
+   - Human-in-the-loop: a person makes the final call on the risky decisions.
+   - CLI: command-line interface, a program you run in the terminal (no website needed).
+   - Approve: confirm the agent's proposal, so the rejection becomes final.
+   - Overturn: disagree and pick a different outcome, such as moving C to "request more info".
+
+
+- An eval set (about 30 labelled applications) to evaluate the agent decisions and measure agreement with human recruiters.
+
+- Real integrations like automatic email sends behind the same tool interface.
